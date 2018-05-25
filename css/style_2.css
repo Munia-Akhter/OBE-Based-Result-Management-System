@@ -1,0 +1,88 @@
+#btn {
+    height: 30px;
+    width: 92px;
+    margin-left: 44px;
+}
+
+#function {
+    width: 100%;
+    margin: 0px auto;
+}
+
+#nb {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #020c13fc;
+    color: #ffffff;
+}
+
+#nb2 {
+    margin-left: 0px;
+    float: left;
+}
+
+#nb2 ul li a {
+    color: white;
+}
+
+#nb2 a:hover,
+#nb2 a:active,
+#nb2 a:active a:link,
+#nb2 a:active a:visited {
+    transition: circle all 0.50s;
+    margin-left: 10px;
+    color: #e0314b;
+    text-shadow: none;
+}
+
+table th,
+td,
+tr {
+    text-align: center;
+}
+
+table th {
+    background-color: #85929E;
+    color: #D5DBDB;
+}
+
+.faculty {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.jumbotron {
+    min-height: 700px;
+}
+
+#tbl1 {
+    float: left;
+    background-color: #020c13fc;
+    min-height: 450px;
+    border-radius: 7px;
+}
+
+#tbl1 a {
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    color: white;
+}
+
+#tbl2 {
+    margin-top: 20px;
+    border: 1px solid black;
+    float: right;
+    width: 75%;
+}
+
+#tbl2 th {
+    background-color: #282c33;
+    color: #D5DBDB;
+}
+
+.pagination {
+    margin-left: 100px;
+}

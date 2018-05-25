@@ -1,0 +1,80 @@
+#nb {
+    margin-top: 0px;
+    background-color: #020c13fc;
+    color: #ffffff;
+}
+
+#nb2 ul li a,
+#nb3 a {
+    color: white;
+}
+
+#nb2 ul li a:hover,
+#nb2 ul li a:active,
+#nb2 ul li a:active a:link,
+#nb2 ul li a:active a:visited {
+    background-color: #e0314b;
+    text-shadow: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#login {
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 20px;
+    width: 400px;
+    height: 220px;
+    text-align: center;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    background-color: #D4F2F7;
+}
+
+h4 {
+    text-align: center;
+}
+
+h4.asscourse {
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+#btn {
+    height: 30px;
+    width: 92px;
+    margin-left: 44px;
+}
+
+#function {
+    width: 100%;
+    margin: 0px auto;
+}
+
+table th,
+td,
+tr {
+    text-align: center;
+}
+
+table th {
+    background-color: #282c33;
+    color: #D5DBDB;
+}
+
+.faculty {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+#pagination {
+    margin-left: 500px;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}

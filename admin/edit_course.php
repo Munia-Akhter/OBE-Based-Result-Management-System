@@ -1,0 +1,120 @@
+<?php include("db.php");?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Course</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/style_2.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"></script>
+  <script src="../js/sweetalert.min.js"></script>
+</head>
+<body>
+   <div id="function">
+	   <div>
+			<nav class="navbar navbar-default" id="nb">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Admin Dashboard</a>
+			    </div>
+			  </div>
+		  </nav>
+      <div style="width:95%; margin:0px auto  id='nb2';">
+       <table id="tbl1" width="16%" height="565px">
+        <tr><td valign="top"><br>
+          <a href="#" class="glyphicon glyphicon-user">EWU</a><br><br>
+          <a href="admin_dashboard.php" class="btn btn-info" >Dhasboard</a><br><br>
+          <a href="department.php" >Department</a><br><br>
+          <a href="course.php" class="btn btn-info">Course</a><br><br>
+          <a href="offered_course.php">Offer Course</a><br><br>
+          <a href="assign_course.php">Assign Course</a><br><br>
+          <a href="component.php">Component</a><br><br>
+          <a href="history.php">Student PO</a><br><br>
+		  <a href="st_enrollment.php">Student Enrollment</a><br><br>
+          <a href="../logout.php" class="glyphicon glyphicon-log-out"></a>
+          </td>
+        </tr>
+      </table>  
+	  <div style="width:100%; margin:0px auto ; ">
+	  <form method="POST" action="">
+        <table id="tbl2" class="table table-secondary" width="40%">
+			<tbody>
+			<?php 
+			$row_id=$_GET['value'];
+			$sql="SELECT * FROM course c join dept d WHERE c.dept_id=d.dept_id and  c.course_id='$row_id'";
+			$result =mysqli_query($connection,$sql);
+	        if(mysqli_num_rows($result) > 0){
+	            $row = mysqli_fetch_array($result);
+	        ?>
+			<tr>
+		    	<td>Course Code: </td>
+		            <td><input type="text" name="course_code" value="<?php echo $row['course_code'];?>"></td>
+		    </tr>
+		    <tr>
+		        <td>Title: </td>
+		    	<td><input type="text" name="title" value="<?php echo $row['title'];?>">
+		        </td>
+	            </tr>
+	            <tr>
+		        	<td>Department Name: </td>
+		        	<td><input type="text" name="dept_name" value="<?php echo $row['dept'];?>"></td>
+	            </tr>
+	            <tr>
+		            <td>Credit: </td>
+		            <td><input type="text" name="credit" value="<?php echo $row['credit'];?>"></td>
+	            </tr>
+	            <tr>
+							<td colspan="2"><button type="submit" id="save" name="save" class="btn btn btn-danger btn-sm" style="font-size:16px">Save</button></td>
+			      </tr>
+	            <?php
+	                }
+				?>
+				</tbody>
+			  </table>
+			</form><br>
+	   </div>
+	</div>
+</body>
+</html>
+<?php 
+   if(isset($_POST)){
+   		if(isset($_POST['save'])){
+   			$course_code=mysqli_real_escape_string($connection, $_POST['course_code']);
+   		        
+	        $title=mysqli_real_escape_string($connection, $_POST['title']);
+	        
+	        $dept_name=mysqli_real_escape_string($connection, $_POST['dept_name']);
+	        
+	        $credit=mysqli_real_escape_string($connection, $_POST['credit']);
+
+	        $sql11="SELECT dept_id FROM dept where dept='$dept_name'";
+	        $select11=mysqli_query($connection,$sql11);
+
+			if(mysqli_num_rows($select11) > 0) {
+				$row1 = mysqli_fetch_array($select11);
+					$dept_id=$row1['dept_id'];
+
+			}
+
+        	$sql="UPDATE course set course_code='$course_code',title='$title',dept_id='$dept_id',credit='$credit' WHERE course_id='$row_id'";
+	        if(mysqli_query($connection,$sql)){
+	            $result=mysqli_query($connection,$sql);
+	                echo '<script type="text/javascript">'; 
+	                echo 'setTimeout(function () {  swal("Successfully Saved");';
+	                echo '},600);</script>';
+	                ?>
+	               	<script type="text/javascript">
+	                	setTimeout(function () {
+	               			window.location="course.php";
+	               			},3000);
+	                </script>
+	           	<?php
+	        	}
+	    	}
+	    } 
+?>
